@@ -1,0 +1,52 @@
+version: '3.8'
+
+services:
+  # Base de données PostgreSQL
+  postgres:
+    image: postgres:15-alpine
+    container_name: note-bloc-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: ${POSTGRES_DB:-notebloc}
+      POSTGRES_USER: ${POSTGRES_USER:-noteuser}
+      POSTGRES_PASSWORD: ${POSTGRES_PASSWORD:-notepass123}
+    ports:
+      - "${POSTGRES_PORT:-5432}:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - note-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U ${POSTGRES_USER:-noteuser} -d ${POSTGRES_DB:-notebloc}"]
+      interval: 30s
+      timeout: 10s
+      retries: 3
+
+  # Application Spring Boot
+  app:
+    build:
+      context: .
+      dockerfile: Dockerfile
+    container_name: note-bloc-app
+    restart: unless-stopped
+    depends_on:
+      postgres:
+        condition: service_healthy
+    environment:
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/${POSTGRES_DB:-notebloc}
+      SPRING_DATASOURCE_USERNAME: ${POSTGRES_USER:-noteuser}
+      SPRING_DATASOURCE_PASSWORD: ${POSTGRES_PASSWORD:-notepass123}
+      SPRING_JPA_HIBERNATE_DDL_AUTO: ${JPA_DDL_AUTO:-update}
+      SPRING_PROFILES_ACTIVE: docker
+    ports:
+      - "${APP_PORT:-8080}:8080"
+    networks:
+      - note-network
+
+volumes:
+  postgres_data:
+    driver: local
+
+networks:
+  note-network:
+    driver: bridge
