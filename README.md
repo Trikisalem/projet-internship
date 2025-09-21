@@ -80,24 +80,5 @@
 
 ---
 
-<div align="center">
 
-### 👨‍💻 **Développeur**
-
-**Salem Triki** - Ingénieur en Formation  
-🎓 Stage de fin d'études | 🚀 Passionné par les technologies modernes
-
-[![GitHub](https://img.shields.io/badge/GitHub-Trikisalem-181717?style=flat&logo=github)](https://github.com/Trikisalem)
-[![LinkedIn](https://img.shields.io/badge/LinkedIn-Salem_Triki-0A66C2?style=flat&logo=linkedin)](https://linkedin.com/in/salem-triki)
-[![Email](https://img.shields.io/badge/Email-Contact-EA4335?style=flat&logo=gmail)](mailto:salem.triki@example.com)
-
----
-
-### 🎯 **Objectif Carrière**
-
-**Développeur Full-Stack Junior** recherchant un poste dans une équipe dynamique pour contribuer à des projets innovants et continuer mon apprentissage des technologies modernes.
-
-**💡 Prêt à intégrer votre équipe et apporter ma passion pour le développement !**
-
-</div>
 
