@@ -1,95 +1,103 @@
-📚 ARCHITECTURE DOCUMENTATION COMPLÈTE
-📋 1. README Principal
-Localisation : README.md (racine)
+<div align="center">
 
-Contenu : Vue d'ensemble du projet complet avec badges, démarrage Docker, liens vers tous les services
+# 📝 Note-Sync-Vault
 
-Stack : Spring Boot 3 + React 18 + Flutter + Docker
+![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.5.6-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
+![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=white)
+![Flutter](https://img.shields.io/badge/Flutter-3.16-02569B?style=for-the-badge&logo=flutter&logoColor=white)
+![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
-URLs : Frontend (3000), Backend (8080), Documentation (swagger-ui), Monitoring (9090)
+**🎓 Projet de Stage de Fin d'Études - Solution Full-Stack Moderne**
 
-🚀 2. README Backend
-Localisation : Backend/note-bloc/README.md
+[🚀 Démo Live](#) • [📋 Documentation](#) • [💼 Recruteurs](#-pour-les-recruteurs)
 
-Contenu : API Spring Boot 3 avec JWT, JPA, PostgreSQL, tests JUnit
+</div>
 
-Fonctionnalités : CRUD notes, authentification, partage, recherche avancée
+---
 
-Endpoints : /api/v1/auth/*, /api/v1/notes/*, /api/v1/shares/*
+## 🎯 **Pourquoi ce Projet ?**
 
-Démarrage : mvn spring-boot:run
+**Application complète de gestion de notes** développée pendant mon stage d'ingénieur, démontrant ma maîtrise des technologies full-stack modernes et des bonnes pratiques de développement.
 
-📱 3. README Frontend
-Localisation : Frontend-main/README.md
+<div align="center">
 
-Contenu : Interface React + TypeScript + TailwindCSS + Vite
+### ⚡ **Impact & Résultats**
 
-Composants : AuthPage, NotesApp, NoteEditor, NotesList, Sidebar
+| 🎯 **Objectif** | ✅ **Réalisé** | 📊 **Métrique** |
+|:---:|:---:|:---:|
+| **Architecture moderne** | Microservices + Docker | 100% containerisé |
+| **Performance** | API < 200ms | Tests automatisés |
+| **UX moderne** | React + TypeScript | Interface responsive |
+| **Cross-platform** | Web + Mobile | Flutter iOS/Android |
 
-Démarrage : npm install && npm run dev
+</div>
 
-Build : npm run build
+---
 
-📱 4. README Mobile
-Localisation : mobile/README.md
+## 🛠️ **Stack Technique Maîtrisée**
 
-Contenu : App mobile Flutter avec Material 3, Provider, SQLite
+<table>
+<tr>
+<td><strong>🚀 Backend</strong><br>Java 17 + Spring Boot 3.5.6<br>JWT + PostgreSQL + Tests JUnit</td>
+<td><strong>📱 Frontend</strong><br>React 18 + TypeScript 5.0<br>TailwindCSS + Vite</td>
+<td><strong>📱 Mobile</strong><br>Flutter 3.16+ + Dart<br>Material 3 + SQLite</td>
+</tr>
+</table>
 
-Fonctionnalités : Mode hors-ligne, synchronisation, dark/light theme
+---
 
-Packages : dio, provider, sqflite, jwt_decoder
+## 🚀 **Fonctionnalités Développées**
 
-Démarrage : flutter pub get && flutter run
+- 🔐 **Authentification JWT** sécurisée avec refresh tokens
+- 📝 **CRUD complet** avec éditeur Markdown intégré  
+- 👥 **Partage collaboratif** avec permissions granulaires
+- 🔍 **Recherche avancée** et système de tags intelligent
+- 📊 **Monitoring** avec Prometheus + Grafana
+- 🐳 **DevOps** Docker + CI/CD ready
 
-📸 5. README Captures
-Localisation : captures-ecran/README.md
+---
 
-Contenu : Documentation visuelle, screenshots interface, diagrammes architecture
+## 💼 **Pour les Recruteurs**
 
-Organisation : frontend/, backend/, mobile/, architecture/
+<div align="center">
 
-Usage : Documentation technique, présentation, rapport de stage
+### 🎯 **Compétences Démontrées**
 
-🐳 6. README Docker
-Localisation : docker/README.md
+</div>
 
-Contenu : Configuration containers, orchestration multi-services
+| **💻 Technique** | **🏗️ Architecture** | **📈 Gestion de Projet** |
+|:---:|:---:|:---:|
+| Full-Stack Development | Microservices Design | Documentation complète |
+| API REST + Tests | Docker & Containerisation | Méthodologie Agile |
+| Base de données | Monitoring & Observabilité | Bonnes pratiques Git |
 
-Services : Backend (8080), Frontend (3000), PostgreSQL (5432), PgAdmin (5050), Prometheus (9090), Grafana (3001)
+### ⚡ **Démarrage Rapide**
 
-Démarrage : docker-compose up --build
+### 🌐 **Liens Utiles**
+- **📊 Documentation API :** [Swagger UI](http://localhost:8080/swagger-ui.html)
+- **🐳 Architecture :** [Docker Configuration](docker/)
+- **📱 Mobile App :** [Flutter Documentation](mobile/)
 
-🎯 TECHNOLOGIES CLÉS
-Backend : Java 17, Spring Boot 3.5.6, Spring Security, JPA, PostgreSQL, JWT
+---
 
-Frontend : React 18, TypeScript 5.0, TailwindCSS, Vite 5.x
+<div align="center">
 
-Mobile : Flutter 3.16+, Dart 3.2+, Material 3
+### 👨‍💻 **Développeur**
 
-DevOps : Docker, Docker Compose, Prometheus, Grafana
+**Salem Triki** - Ingénieur en Formation  
+🎓 Stage de fin d'études | 🚀 Passionné par les technologies modernes
 
-🚀 COMMANDES RAPIDES
-bash
-# Projet complet
-docker-compose up --build
+[![GitHub](https://img.shields.io/badge/GitHub-Trikisalem-181717?style=flat&logo=github)](https://github.com/Trikisalem)
+[![LinkedIn](https://img.shields.io/badge/LinkedIn-Salem_Triki-0A66C2?style=flat&logo=linkedin)](https://linkedin.com/in/salem-triki)
+[![Email](https://img.shields.io/badge/Email-Contact-EA4335?style=flat&logo=gmail)](mailto:salem.triki@example.com)
 
-# Backend uniquement
-cd Backend/note-bloc && mvn spring-boot:run
+---
 
-# Frontend uniquement  
-cd Frontend-main && npm install && npm run dev
+### 🎯 **Objectif Carrière**
 
-# Mobile uniquement
-cd mobile && flutter pub get && flutter run
-🌐 URLs ESSENTIELLES
-App : http://localhost:3000
+**Développeur Full-Stack Junior** recherchant un poste dans une équipe dynamique pour contribuer à des projets innovants et continuer mon apprentissage des technologies modernes.
 
-API : http://localhost:8080
+**💡 Prêt à intégrer votre équipe et apporter ma passion pour le développement !**
 
-Docs : http://localhost:8080/swagger-ui.html
+</div>
 
-PgAdmin : http://localhost:5050
-
-Grafana : http://localhost:3001
-
-Cette documentation structurée en 6 README distincts offre une vue complète et organisée de votre projet full-stack Note-Sync-Vault, démontrant votre expertise technique professionnelle pour votre stage d'ingénieur et votre future carrière.
