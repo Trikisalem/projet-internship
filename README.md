@@ -70,7 +70,7 @@ Frontend : React 18, TypeScript 5.0, TailwindCSS, Vite 5.x
 
 Mobile : Flutter 3.16+, Dart 3.2+, Material 3
 
-DevOps : Docker, Docker Compose, Prometheus, Grafana
+DevOps : Docker, Docker Compose,
 
 Commandes Rapides
 bash
