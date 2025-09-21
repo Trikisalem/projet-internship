@@ -1,13 +1,13 @@
 <div align="center">
 
-# 📝 Note-Sync-Vault
+# 📝 Note
 
 ![Spring Boot](https://img.shields.io/badge/Spring_Boot-3.5.6-6DB33F?style=for-the-badge&logo=spring&logoColor=white)
 ![React](https://img.shields.io/badge/React-18-61DAFB?style=for-the-badge&logo=react&logoColor=white)
 ![Flutter](https://img.shields.io/badge/Flutter-3.16-02569B?style=for-the-badge&logo=flutter&logoColor=white)
 ![Docker](https://img.shields.io/badge/Docker-Ready-2496ED?style=for-the-badge&logo=docker&logoColor=white)
 
-**🎓 Projet de Stage de Fin d'Études - Solution Full-Stack Moderne**
+**🎓 Mini Projet - Solution Full-Stack Moderne**
 
 [🚀 Démo Live](#) • [📋 Documentation](#) • [💼 Recruteurs](#-pour-les-recruteurs)
 
