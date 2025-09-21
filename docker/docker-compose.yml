@@ -1,0 +1,111 @@
+version: '3.8'
+
+services:
+  # ===============================================
+  # 🗄️ BASE DE DONNÉES POSTGRESQL
+  # ===============================================
+  postgres:
+    image: postgres:15-alpine
+    container_name: notebloc-postgres
+    restart: unless-stopped
+    environment:
+      POSTGRES_DB: notebloc
+      POSTGRES_USER: noteuser
+      POSTGRES_PASSWORD: notepass123
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+    networks:
+      - notebloc-network
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U noteuser -d notebloc"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+
+  # ===============================================
+  # 🚀 BACKEND SPRING BOOT
+  # ===============================================
+  backend:
+    build:
+      context: ./Backend/note-bloc
+      dockerfile: Dockerfile
+    container_name: notebloc-backend
+    restart: unless-stopped
+    environment:
+      SPRING_PROFILES_ACTIVE: docker
+      SPRING_DATASOURCE_URL: jdbc:postgresql://postgres:5432/notebloc
+      SPRING_DATASOURCE_USERNAME: noteuser
+      SPRING_DATASOURCE_PASSWORD: notepass123
+      JWT_SECRET: myVerySecretKeyForProductionNoteBloc2025!@#$%^&*()
+      JWT_EXPIRATION: 86400000
+      SERVER_PORT: 8080
+    ports:
+      - "8080:8080"
+    depends_on:
+      postgres:
+        condition: service_healthy
+    networks:
+      - notebloc-network
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:8080/actuator/health"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+
+  # ===============================================
+  # 📱 FRONTEND REACT
+  # ===============================================
+  frontend:
+    build:
+      context: ./Frontend-main
+      dockerfile: Dockerfile
+    container_name: notebloc-frontend
+    restart: unless-stopped
+    environment:
+      REACT_APP_API_URL: http://localhost:8080/api/v1
+      REACT_APP_NAME: Note-Sync-Vault
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    networks:
+      - notebloc-network
+
+  # ===============================================
+  # 🔧 PGADMIN (ADMINISTRATION BDD)
+  # ===============================================
+  pgadmin:
+    image: dpage/pgadmin4:latest
+    container_name: notebloc-pgadmin
+    restart: unless-stopped
+    environment:
+      PGADMIN_DEFAULT_EMAIL: admin@notebloc.com
+      PGLADMIN_DEFAULT_PASSWORD: admin123
+      PGADMIN_CONFIG_SERVER_MODE: 'False'
+    ports:
+      - "5050:80"
+    depends_on:
+      - postgres
+    networks:
+      - notebloc-network
+    volumes:
+      - pgadmin_data:/var/lib/pgadmin
+
+# ===============================================
+# 🌐 RÉSEAUX
+# ===============================================
+networks:
+  notebloc-network:
+    name: notebloc-network
+    driver: bridge
+
+# ===============================================
+# 💾 VOLUMES PERSISTANTS
+# ===============================================
+volumes:
+  postgres_data:
+    name: notebloc-postgres-data
+  pgadmin_data:
+    name: notebloc-pgadmin-data
